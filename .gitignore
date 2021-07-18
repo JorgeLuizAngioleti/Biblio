@@ -1,0 +1,8 @@
+*.idea
+*.sqlite
+*.pyc
+novo
+.DS_Stone
+media
+.venv
+venv

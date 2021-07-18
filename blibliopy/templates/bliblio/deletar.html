@@ -1,0 +1,11 @@
+{% extends 'bliblio/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<H1>Deseja devolver o livro: {{pega.codigo_livro}}?</H1>
+	<form method="POST" enctype="multipart/form-data">
+		{%csrf_token%}
+
+		<button type="submit" class="btn btn-danger">Devolver</button>
+	</form>
+<a href="{% url 'home_url' %}" class="btn btn-warning">Cancelar</a>
+{% endblock %}

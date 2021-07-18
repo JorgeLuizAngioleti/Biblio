@@ -1,0 +1,24 @@
+{% extends 'bliblio/base.html' %}
+
+{% block content %}
+	<H1>Livro emprestado com sucesso!</H1>
+<table class="table">
+	 <tr>
+    <th>Aluno</th>
+    <th>Livro</th>
+  </tr>
+  <tr>
+
+
+{%for a in aluno%}
+	<td>{{a}}</td>
+{%endfor%}
+{%for l in livro%}
+	<td>{{l}}</td>
+{%endfor%}
+  </tr>
+</table>
+	<br>
+<a href="{% url 'home_url' %}" class="btn btn-primary">Voltar</a>
+
+{%endblock%}

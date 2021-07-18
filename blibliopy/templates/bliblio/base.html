@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+      <title>Django Biblio_Py</title>
+  </head>
+  <body>
+   <div class="page-header">
+           <a href="" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+
+            <center><h1 >Django Biblio_Py</h1></center>
+   </div>
+   <h4><center>Autor: Jorge Luiz Angioleti &ensp;&ensp;Criado para gerenciar bibliotecas</center> </h4>
+    <div class=" container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron">
+
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+ <div class="card-footer text-muted" >
+    <footer><center>
+          <p>Desenvolvido por: Jorge Luiz Angioleti&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;contato: jorgescorpionsound@hotmail.com</p>
+    </center></footer>
+</div>
+  </body>
+</html>

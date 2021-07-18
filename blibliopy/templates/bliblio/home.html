@@ -1,0 +1,51 @@
+{% extends 'bliblio/base.html' %}
+
+{% block content %}
+
+	<h1>Emprestar livro</h1>
+	<form method="get" action="{% url 'emprestar_url' %}">
+		Código do aluno:
+		<input type="text" name="aluno" required  class="input-group">
+		Código do livro:
+		<input type="text" name="livro" required class="input-group">
+		<button type="submit" class="btn btn-success" >Emprestar livro</button>
+	</form>
+	<a href="{% url 'aluno_url' %}" class="btn btn-primary">cadastrar novo aluno</a>
+	<a href="{% url 'livro_url' %}" class="btn btn-primary">cadastrar  livro</a>
+	<hr>
+{% for contact in contacts.object_list %}
+    {# Cada "contato" é um objeto do model Contact. #}
+	<table  class="table" border="1">
+	<thead class="thead-dark">
+	 <tr>
+		 <th>Data</th>
+		 <th>Livro</th>
+		 <th>Aluno</th>
+		 <th>Turma</th>
+		 <th>Devolver</th>
+	 </tr></thead>
+	 <tr>
+		 <td>{{contact.data}}</td>
+		 <td>{{contact.codigo_livro}}</td>
+		 <td>{{contact.codigo_aluno}}</td>
+		 <td>{{contact.get_turma_display}}</td>
+		 <th><a href="{% url 'devolver_url' contact.id %}" class="btn btn-danger">Devolver</a></th>
+	{%endfor%}
+	</tr>
+</table>
+<div class="pagination">
+    <span class="step-links">
+        {% if contacts.has_previous %}
+            <a href="?page={{ contacts.previous_page_number }}" class="btn btn-primary">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+        </span>
+
+        {% if contacts.has_next %}
+            <a href="?page={{ contacts.next_page_number }}" class="btn btn-primary">próxima</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}
